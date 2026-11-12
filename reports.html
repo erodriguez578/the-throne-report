@@ -11,12 +11,13 @@
  <header>
     <h1>The Throne Report</h1>
     <p>Wrong Turn, Right Place.</p>
+  
+<nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="reports.html" class="current" aria-current="page">Reports</a>
+    <a href="survival-guide.html">Survival Guide</a>
+</nav>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="reports.html">Reports</a>
-        <a href="survival-guide.html">Survival Guide</a>
-    </nav>
 </header>
 
 <main>
@@ -25,7 +26,7 @@
         <p>Not all pit stops are created equal.</p>
 
         <div class="report-cards">
-            <article class="report safe">
+            <article class="report safe" id="royal-flush">
                 <h2>The Royal Flush</h2>
                 <h3>SAFE</h3>
                 <p>A restroom so unexpectedly clean
@@ -36,7 +37,7 @@
                 A throne worthy of royalty.</p>
             </article>
 
-            <article class="report caution">
+            <article class="report caution" id="splash-zone">
                 <h2>The Splash Zone</h2>
                 <h3>BRING YOUR DISINFECTANT</h3>
                 <p>The restroom technically works,
@@ -47,7 +48,7 @@
                 Enter at your own risk. Touch nothing.</p>
             </article>
 
-            <article class="report danger">
+            <article class="report danger" id="point-of-no-return">
                 <h2>The Point of No Return</h2>
                 <h3>STAY AWAY</h3>
                 <p>The lighting flickers,

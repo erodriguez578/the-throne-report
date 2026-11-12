@@ -25,7 +25,7 @@ body {
 /* Headings */
 
 h1, h2, h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'oswald', sans-serif;
     text-transform: uppercase;
 }
 
@@ -221,3 +221,172 @@ iframe {
         font-size: 40px;
     }
 }
+
+#hero {
+    text-align: center;
+}
+
+.hero-logo {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    margin: 0 auto 25px;
+}
+
+#hero .restroom-sign {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background-color: var(--teal);
+    color: var(--cream);
+    border: 3px solid var(--black);
+    border-radius: 4px;
+    padding: 12px 22px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+#hero .restroom-sign:hover {
+    background-color: var(--black);
+    color: var(--cream);
+}
+
+#hero .restroom-sign:focus-visible {
+    outline: 3px solid var(--red);
+    outline-offset: 4px;
+}
+#hero h2 {
+    margin-bottom: 22px;
+}
+
+#ratings {
+    text-align: center;
+}
+
+#ratings .rating {
+    background: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 0;
+}
+
+#ratings .rating img {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#ratings .rating p {
+    font-size: 16px;
+    margin-top: 15px;
+    line-height: 1.5;
+}
+
+/* Vintage Featured Report Cards */
+
+#featured {
+    text-align: center;
+}
+
+#featured .featured-report {
+    background-color: #F7F1E6;
+    border: 2px solid var(--black);
+    border-radius: 3px;
+    padding: 12px;
+    text-align: left;
+    box-shadow: 4px 4px 0 var(--black);
+    display: flex;
+    flex-direction: column;
+}
+
+#featured .featured-report img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid var(--black);
+    box-sizing: border-box;
+}
+
+#featured .featured-report h3 {
+    font-size: 24px;
+    margin: 15px 0 5px;
+}
+
+#featured .report-rating {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 5px 0 15px;
+}
+
+.safe-text {
+    color: var(--teal);
+}
+
+.caution-text {
+    color: #85601F;
+}
+
+.danger-text {
+    color: var(--red);
+}
+
+#featured .featured-report a {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--black);
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+}
+
+#featured .featured-report {
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+#featured .featured-report:hover {
+    transform: translateY(-4px);
+    box-shadow: 6px 6px 0 var(--black);
+}
+
+nav a {
+    padding: 6px 10px;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--mustard);
+    border-bottom-color: var(--mustard);
+}
+
+nav a:active {
+    color: var(--cream);
+    background-color: var(--red);
+}
+
+nav a.current {
+    color: var(--cream);
+    border-bottom-color: var(--cream);
+}
+
+nav a:focus-visible {
+    outline: 3px solid var(--mustard);
+    outline-offset: 3px;
+}
+
+main a:active {
+    opacity: 0.75;
+}
+
