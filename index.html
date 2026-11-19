@@ -10,184 +10,178 @@
 <body>
 
 <header>
-    
-<nav aria-label="Main navigation">
-    <a href="index.html" class="current" aria-current="page">Home</a>
-    <a href="reports.html">Reports</a>
-    <a href="survival-guide.html">Survival Guide</a>
-</nav>
-
+    <nav aria-label="Main navigation">
+        <a href="index.html" class="current" aria-current="page">Home</a>
+        <a href="reports.html">Reports</a>
+        <a href="survival-guide.html">Survival Guide</a>
+    </nav>
 </header>
 
 <main>
+
+    <!-- HERO -->
     <section id="hero">
         <img
-    src="images/throne-report-logo.png"
-    alt="The Throne Report - Wrong Turn, Right Place"
-    class="hero-logo"
->
+            src="images/throne-report-logo.png"
+            alt="The Throne Report - Wrong Turn, Right Place"
+            class="hero-logo"
+        >
+
         <h2>When Nature Calls, We Investigate.</h2>
-        
-<a href="reports.html" class="restroom-sign">
-    <span class="sign-icon" aria-hidden="true">🚻</span>
-    <span>Explore the Reports</span>
-    <span aria-hidden="true">→</span>
-</a>
-<a href="#ratings" class="scroll-indicator">
-    <span>THE INVESTIGATION CONTINUES BELOW</span>
-    <span class="scroll-arrow" aria-hidden="true">⌄</span>
-</a>
     </section>
 
+    <!-- WELCOME -->
     <section id="about">
         <h2>Welcome to The Throne Report</h2>
 
-        <p>Every road trip has its memorable moments.
-        The scenic overlooks, questionable gas station
-        snacks, unexpected detours, and that desperate
-        search for a bathroom.</p>
+        <p>
+            Every road trip has its memorable moments.
+            Scenic overlooks, questionable gas station snacks,
+            unexpected detours, and that one bathroom stop
+            you wish you could forget.
+        </p>
 
-        <p>We're here to document the good, expose the
-        questionable, and help fellow travelers avoid
-        situations they'd rather forget.</p>
+        <p>
+            We've made it our business to investigate the places
+            most people would rather not discuss.
+            Because sometimes the most important decision
+            on the road is whether to open that stall door.
+        </p>
     </section>
 
+    <!-- RATING SYSTEM -->
     <section id="ratings">
-    <h2>Know Before You Go</h2>
-    <p>Our three-level rating system helps you
-    decide whether to stop or keep driving.</p>
+        <h2>Know Before You Go</h2>
 
-    <div class="rating-cards">
-        
+        <p>
+            Our three-level rating system helps you
+            decide whether to stop or keep driving.
+        </p>
 
-<div class="rating safe flip-card" tabindex="0"
-     aria-label="Safe rating: flip to reveal definition">
+        <div class="rating-cards">
 
-    <div class="flip-card-inner">
+            <!-- SAFE -->
+            <div class="rating safe flip-card"
+                 tabindex="0"
+                 aria-label="Safe rating: flip to reveal definition">
 
-        <div class="flip-card-front">
-            <img src="images/rating-safe.png"
-                 alt="Safe - Throne Approved">
+                <div class="flip-card-inner">
+
+                    <div class="flip-card-front">
+                        <img
+                            src="images/rating-safe.png"
+                            alt="Safe - Throne Approved"
+                        >
+                    </div>
+
+                    <div class="flip-card-back safe-back">
+                        <h3>THRONE APPROVED</h3>
+
+                        <p>
+                            A rare roadside sanctuary.
+                            Clean seats, stocked paper,
+                            and absolutely no reason to hover.
+                        </p>
+
+                        <span class="rating-stamp">
+                            OFFICIAL THRONE REPORT RATING
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- BRING DISINFECTANT -->
+            <div class="rating caution flip-card"
+                 tabindex="0"
+                 aria-label="Bring Disinfectant: flip to reveal definition">
+
+                <div class="flip-card-inner">
+
+                    <div class="flip-card-front">
+                        <img
+                            src="images/rating-disinfectant.png"
+                            alt="Bring Disinfectant"
+                        >
+                    </div>
+
+                    <div class="flip-card-back caution-back">
+                        <h3>SPRAY &amp; PRAY</h3>
+
+                        <p>
+                            Not quite a crime scene, but don't
+                            touch anything you don't have to.
+                            Proceed with wipes and low expectations.
+                        </p>
+
+                        <span class="rating-stamp">
+                            OFFICIAL THRONE REPORT RATING
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- STAY AWAY -->
+            <div class="rating danger flip-card"
+                 tabindex="0"
+                 aria-label="Stay Away: flip to reveal definition">
+
+                <div class="flip-card-inner">
+
+                    <div class="flip-card-front">
+                        <img
+                            src="images/rating-stay-away.png"
+                            alt="Stay Away"
+                        >
+                    </div>
+
+                    <div class="flip-card-back danger-back">
+                        <h3>ABORT MISSION</h3>
+
+                        <p>
+                            Whatever brought you here can wait.
+                            Get back in the car. We don't ask
+                            questions about what happened inside.
+                        </p>
+
+                        <span class="rating-stamp">
+                            OFFICIAL THRONE REPORT RATING
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
+    </section>
 
-        <div class="flip-card-back safe-back">
-            <h3>THRONE APPROVED</h3>
+    <!-- FEATURED REPORTS -->
+    <section id="featured">
+
+        <h2>Featured Reports</h2>
+
+        <div class="featured-intro">
+            <h3>WE WENT IN SO YOU DON'T HAVE TO.</h3>
 
             <p>
-                A rare roadside sanctuary.
-                Clean seats, stocked paper,
-                and absolutely no reason to hover.
+                Questionable stalls. Suspicious surfaces.
+                A few pleasant surprises. We've documented
+                the good, the bad, and the downright regrettable.
             </p>
 
-            <span class="rating-stamp">
-                OFFICIAL THRONE REPORT RATING
-            </span>
+            <a href="reports.html" class="restroom-sign">
+                <span class="sign-icon" aria-hidden="true">🚻</span>
+                <span>Explore the Reports</span>
+                <span aria-hidden="true">→</span>
+            </a>
         </div>
 
-    </div>
+    </section>
 
-</div>
-
-<div class="rating caution flip-card" tabindex="0"
-     aria-label="Bring Disinfectant: flip to reveal definition">
-
-    <div class="flip-card-inner">
-
-        <div class="flip-card-front">
-            <img src="images/rating-disinfectant.png"
-                 alt="Bring Disinfectant">
-        </div>
-
-        <div class="flip-card-back caution-back">
-            <h3>SPRAY &amp; PRAY</h3>
-
-            <p>
-                Not quite a crime scene, but don't
-                touch anything you don't have to.
-                Proceed with wipes and low expectations.
-            </p>
-
-            <span class="rating-stamp">
-                OFFICIAL THRONE REPORT RATING
-            </span>
-        </div>
-
-    </div>
-</div>
-
-<div class="rating danger flip-card" tabindex="0"
-     aria-label="Stay Away: flip to reveal definition">
-
-    <div class="flip-card-inner">
-
-        <div class="flip-card-front">
-            <img src="images/rating-stay-away.png"
-                 alt="Stay Away">
-        </div>
-
-        <div class="flip-card-back danger-back">
-            <h3>ABORT MISSION</h3>
-
-            <p>
-                Whatever brought you here can wait.
-                Get back in the car. We don't ask
-                questions about what happened inside.
-            </p>
-
-            <span class="rating-stamp">
-                OFFICIAL THRONE REPORT RATING
-            </span>
-        </div>
-
-    </div>
-</div>
-
-
-    </div>
-</section>
-
-<section id="featured">
-    <h2>Featured Reports</h2>
-    <p>Three stops. Three very different experiences.</p>
-
-    <div class="featured-cards">
-        
-<article class="featured-report">
-    <img src="images/clean-restroom.jpg"
-         alt="Clean public restroom">
-
-    <h3>The Royal Flush</h3>
-    <p class="report-rating safe-text">SAFE</p>
-
-    <a href="reports.html#royal-flush">View Report →</a>
-</article>
-
-<article class="featured-report">
-    <img src="images/older-sink.jpg"
-         alt="Older public restroom sink">
-
-    <h3>The Splash Zone</h3>
-    <p class="report-rating caution-text">
-        BRING YOUR DISINFECTANT
-    </p>
-
-    <a href="reports.html#splash-zone">View Report →</a>
-</article>
-
-<article class="featured-report">
-    <img src="images/neglected-stall.png"
-         alt="Neglected public restroom stall">
-
-    <h3>The Point of No Return</h3>
-    <p class="report-rating danger-text">STAY AWAY</p>
-
-    <a href="reports.html#point-of-no-return">View Report →</a>
-</article>
-
-    </div>
-</section>
 </main>
 
+<!-- FOOTER -->
 <footer>
     <h2>Every Throne Has a Story.</h2>
 

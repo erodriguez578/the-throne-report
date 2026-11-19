@@ -62,20 +62,20 @@ const tips = [
 ];
 
 const tipButton = document.getElementById("tip-button");
-const flushSound = new Audio("audio/toilet-flush.mp3");
-flushSound.volume = 0.4;
 const tipResult = document.getElementById("tip-result");
 
-let previousTip = -1;
-
 if (tipButton && tipResult) {
-    tipButton.addEventListener("click", function() {
+    const flushSound = new Audio("audio/toilet-flush.mp3");
+    flushSound.volume = 0.4;
 
-        // Play the toilet flushing sound
+    let previousTip = -1;
+
+    tipButton.addEventListener("click", function() {
         flushSound.currentTime = 0;
         flushSound.play().catch(() => {});
 
         let randomIndex;
+
         do {
             randomIndex = Math.floor(Math.random() * tips.length);
         } while (randomIndex === previousTip);
@@ -83,32 +83,52 @@ if (tipButton && tipResult) {
         previousTip = randomIndex;
 
         tipResult.innerHTML =
-            "<strong>" + tips[randomIndex].title + "</strong><span>" +
-            tips[randomIndex].advice + "</span>";
+            "<strong>" + tips[randomIndex].title + "</strong>" +
+            "<span>" + tips[randomIndex].advice + "</span>";
     });
 }
+
+
+/* -----------------------------------------
+   2. EVIDENCE GALLERY SCROLLING
+   ----------------------------------------- */
 
 const evidenceGallery = document.querySelector(".evidence-gallery");
 const galleryPrevious = document.getElementById("gallery-prev");
 const galleryNext = document.getElementById("gallery-next");
 
 if (evidenceGallery && galleryPrevious && galleryNext) {
-    galleryPrevious.addEventListener("click", function() {
+
+    function scrollGallery(direction) {
+        const card = evidenceGallery.querySelector(".evidence-card");
+
+        if (!card) return;
+
+        const gap = parseFloat(
+            window.getComputedStyle(evidenceGallery).columnGap
+        ) || 0;
+
+        const distance = card.getBoundingClientRect().width + gap;
+
         evidenceGallery.scrollBy({
-            left: -310,
+            left: distance * direction,
             behavior: "smooth"
         });
+    }
+
+    galleryPrevious.addEventListener("click", function() {
+        scrollGallery(-1);
     });
 
     galleryNext.addEventListener("click", function() {
-        evidenceGallery.scrollBy({
-            left: 310,
-            behavior: "smooth"
-        });
+        scrollGallery(1);
     });
 }
 
-/* Evidence Gallery Lightbox */
+
+/* -----------------------------------------
+   3. EVIDENCE GALLERY LIGHTBOX
+   ----------------------------------------- */
 
 const lightbox = document.getElementById("evidence-lightbox");
 const lightboxImage = document.getElementById("lightbox-image");
@@ -116,34 +136,15 @@ const lightboxTitle = document.getElementById("lightbox-title");
 const lightboxDescription = document.getElementById("lightbox-description");
 const lightboxClose = document.getElementById("lightbox-close");
 
-if (lightbox) {
+if (
+    lightbox &&
+    lightboxImage &&
+    lightboxTitle &&
+    lightboxDescription &&
+    lightboxClose
+) {
     const evidenceLinks = document.querySelectorAll(".evidence-card a");
     let previousFocus = null;
-
-    evidenceLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-            event.preventDefault();
-
-            const card = link.closest(".evidence-card");
-            const image = link.querySelector("img");
-
-            previousFocus = document.activeElement;
-
-            lightboxImage.src = link.href;
-            lightboxImage.alt = image.alt;
-
-            lightboxTitle.textContent =
-                card.querySelector("figcaption strong").textContent;
-
-            lightboxDescription.textContent =
-                card.querySelector("figcaption small").textContent;
-
-            lightbox.classList.add("open");
-            lightbox.setAttribute("aria-hidden", "false");
-            document.body.style.overflow = "hidden";
-            lightboxClose.focus();
-        });
-    });
 
     function closeEvidenceLightbox() {
         lightbox.classList.remove("open");
@@ -156,27 +157,60 @@ if (lightbox) {
         }
     }
 
+    evidenceLinks.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const card = link.closest(".evidence-card");
+            const image = link.querySelector("img");
+            const title = card.querySelector("figcaption strong");
+            const description = card.querySelector("figcaption small");
+            const rating = card.querySelector(".evidence-rating span");
+
+            previousFocus = document.activeElement;
+
+            lightboxImage.src = link.href;
+            lightboxImage.alt = image.alt;
+            lightboxTitle.textContent = title.textContent;
+
+            lightboxDescription.textContent =
+                description.textContent.trim() +
+                (rating ? " | RATING: " + rating.textContent.trim() : "");
+
+            lightbox.classList.add("open");
+            lightbox.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+
+            lightboxClose.focus();
+        });
+    });
+
     lightboxClose.addEventListener("click", closeEvidenceLightbox);
 
-    lightbox.addEventListener("click", (event) => {
+    lightbox.addEventListener("click", function(event) {
         if (event.target === lightbox) {
             closeEvidenceLightbox();
         }
     });
 
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && lightbox.classList.contains("open")) {
+    document.addEventListener("keydown", function(event) {
+        if (!lightbox.classList.contains("open")) return;
+
+        if (event.key === "Escape") {
             closeEvidenceLightbox();
         }
 
-        if (event.key === "Tab" && lightbox.classList.contains("open")) {
+        if (event.key === "Tab") {
             event.preventDefault();
             lightboxClose.focus();
         }
     });
 }
 
-/* Home Page Desk Bell Sound */
+
+/* -----------------------------------------
+   4. HOME PAGE DESK BELL
+   ----------------------------------------- */
 
 const exploreButton = document.querySelector(".restroom-sign");
 
@@ -187,15 +221,22 @@ if (exploreButton) {
     exploreButton.addEventListener("click", function(event) {
         event.preventDefault();
 
+        const destination = exploreButton.href;
+        let navigated = false;
+
+        function navigate() {
+            if (navigated) return;
+
+            navigated = true;
+            window.location.href = destination;
+        }
+
         deskBell.currentTime = 0;
+        deskBell.onended = navigate;
 
-        // Navigate after the bell finishes ringing
-        deskBell.onended = function() {
-            window.location.href = exploreButton.href;
-        };
+        deskBell.play().catch(navigate);
 
-        deskBell.play().catch(function() {
-            window.location.href = exploreButton.href;
-        });
+        // Backup in case the audio does not finish.
+        setTimeout(navigate, 1500);
     });
 }

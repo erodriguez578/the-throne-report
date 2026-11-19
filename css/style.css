@@ -1,6 +1,3 @@
-
-/* The Throne Report - Brand Colors & Fonts */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@500;600;700&display=swap');
 
 :root {
@@ -125,150 +122,31 @@ footer p {
     margin: 10px 0;
 }
 
-/* Rating Cards */
 
-.rating-cards,
-.featured-cards,
-.report-cards {
+/* Shared card layouts and rating colors */
+.rating-cards, .report-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
+.safe { border-top: 6px solid var(--teal); }
+.caution { border-top: 6px solid var(--mustard); }
+.danger { border-top: 6px solid var(--red); }
+.safe h3 { color: var(--teal); }
+.caution h3 { color: #85601F; }
+.danger h3 { color: var(--red); }
 
-.rating,
-.featured-cards article,
-.report {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 8px;
-}
-
-/* Rating Colors */
-
-.safe {
-    border-top: 6px solid var(--teal);
-}
-
-.caution {
-    border-top: 6px solid var(--mustard);
-}
-
-.danger {
-    border-top: 6px solid var(--red);
-}
-
-/* Card Headings */
-
-.safe h3 {
-    color: var(--teal);
-}
-
-.caution h3 {
-    color: #85601F;
-}
-
-.danger h3 {
-    color: var(--red);
-}
-
-/* Featured Report Links */
-
-.featured-cards a {
-    display: inline-block;
-    margin-top: 10px;
-}
-
-/* Photo Gallery */
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* Embedded Map & Video */
-
-iframe {
-    max-width: 100%;
-    border: none;
-    border-radius: 6px;
-}
-
-/* Mobile Layout */
+/* Embedded media */
+iframe { max-width: 100%; border: none; border-radius: 6px; }
 
 @media (max-width: 768px) {
-    .rating-cards,
-    .featured-cards,
-    .report-cards,
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    nav {
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    h1 {
-        font-size: 40px;
-    }
+    .rating-cards, .report-cards { grid-template-columns: 1fr; }
+    nav { flex-wrap: wrap; gap: 15px; }
+    h1 { font-size: 40px; }
 }
 
-#hero {
-    text-align: center;
-}
-
-.hero-logo {
-    display: block;
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-    margin: 0 auto 25px;
-}
-
-#hero .restroom-sign {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    background-color: var(--teal);
-    color: var(--cream);
-    border: 3px solid var(--black);
-    border-radius: 4px;
-    padding: 12px 22px;
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: background-color 0.2s ease;
-}
-
-#hero .restroom-sign:hover {
-    background-color: var(--black);
-    color: var(--cream);
-}
-
-#hero .restroom-sign:focus-visible {
-    outline: 3px solid var(--red);
-    outline-offset: 4px;
-}
-#hero h2 {
-    margin-bottom: 22px;
-}
-
-#ratings {
-    text-align: center;
-}
+/* Homepage rating signs */
+#ratings { text-align: center; }
 
 #ratings .rating {
     background: transparent;
@@ -291,74 +169,6 @@ iframe {
     line-height: 1.5;
 }
 
-/* Vintage Featured Report Cards */
-
-#featured {
-    text-align: center;
-}
-
-#featured .featured-report {
-    background-color: #F7F1E6;
-    border: 2px solid var(--black);
-    border-radius: 3px;
-    padding: 12px;
-    text-align: left;
-    box-shadow: 4px 4px 0 var(--black);
-    display: flex;
-    flex-direction: column;
-}
-
-#featured .featured-report img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border: 1px solid var(--black);
-    box-sizing: border-box;
-}
-
-#featured .featured-report h3 {
-    font-size: 24px;
-    margin: 15px 0 5px;
-}
-
-#featured .report-rating {
-    font-family: 'Oswald', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin: 5px 0 15px;
-}
-
-.safe-text {
-    color: var(--teal);
-}
-
-.caution-text {
-    color: #85601F;
-}
-
-.danger-text {
-    color: var(--red);
-}
-
-#featured .featured-report a {
-    margin-top: auto;
-    padding-top: 12px;
-    border-top: 1px solid var(--black);
-    text-transform: uppercase;
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 1px;
-}
-
-#featured .featured-report {
-    transition: transform 0.2s ease,
-                box-shadow 0.2s ease;
-}
-
-#featured .featured-report:hover {
-    transform: translateY(-4px);
-    box-shadow: 6px 6px 0 var(--black);
-}
 
 nav a {
     padding: 6px 10px;
@@ -541,33 +351,8 @@ main a:active {
     color: var(--cream);
 }
 
-#reports .report-cards {
-    align-items: start;
-    gap: 20px;
-}
 
-#reports .report {
-    background-color: #F7F1E6;
-    border: 2px solid var(--black);
-    border-radius: 3px;
-    border-top-width: 6px;
-    padding: 18px;
-    box-shadow: 4px 4px 0 var(--black);
-    min-width: 0;
-}
-
-#reports .report.safe {
-    border-top-color: var(--teal);
-}
-
-#reports .report.caution {
-    border-top-color: var(--mustard);
-}
-
-#reports .report.danger {
-    border-top-color: var(--red);
-}
-
+/* Report archive metadata */
 .report-header {
     display: flex;
     justify-content: space-between;
@@ -577,172 +362,20 @@ main a:active {
     border-bottom: 1px solid var(--black);
     padding-bottom: 10px;
 }
-
-.report-file,
-.report-category,
-.flush-count,
-.flush-guide {
+.report-file, .report-category {
     font-family: 'Oswald', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
+.report-category { color: var(--black); }
+#reports .report.safe .report-category { color: var(--teal); }
+#reports .report.caution .report-category { color: #85601F; }
+#reports .report.danger .report-category { color: var(--red); }
+#reports > h1 { margin-bottom: 5px; }
+#reports > h1 + p { margin-top: 0; margin-bottom: 22px; font-size: 18px; }
 
-.report-file {
-    color: var(--red);
-}
-
-.report-category {
-    color: var(--black);
-}
-
-#reports .report.safe .report-category {
-    color: var(--teal);
-}
-
-#reports .report.caution .report-category {
-    color: #85601F;
-}
-
-#reports .report.danger .report-category {
-    color: var(--red);
-}
-
-#reports .report h2 {
-    font-size: 25px;
-    line-height: 1.2;
-    margin: 16px 0 12px;
-}
-
-.flush-guide {
-    margin-bottom: 24px;
-    color: var(--red);
-}
-
-.flush-rating {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 12px;
-}
-
-.flush-icons {
-    display: flex;
-    gap: 4px;
-}
-
-
-.drop-icon {
-    width: 23px;
-    height: 23px;
-    fill: none;
-    stroke: #B6AEA0;
-    stroke-width: 1.5;
-    stroke-linejoin: round;
-}
-
-.drop-icon.filled {
-    fill: currentColor;
-    stroke: currentColor;
-}
-
-.safe .drop-icon.filled {
-    color: var(--teal);
-}
-
-.caution .drop-icon.filled {
-    color: var(--mustard);
-}
-
-.danger .drop-icon.filled {
-    color: var(--red);
-}
-
-.flush-count {
-    color: var(--black);
-}
-
-#reports .report-preview {
-    font-size: 15px;
-    line-height: 1.5;
-    margin: 10px 0 16px;
-}
-
-.report-details {
-    border-top: 1px solid var(--black);
-    padding-top: 12px;
-}
-
-.report-details summary {
-    cursor: pointer;
-    color: var(--red);
-    font-family: 'Oswald', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-.report-details summary:hover {
-    text-decoration: underline;
-}
-
-.report-details summary:focus-visible {
-    outline: 2px solid var(--red);
-    outline-offset: 4px;
-}
-
-.report-expanded p {
-    font-size: 15px;
-    line-height: 1.5;
-    margin: 12px 0;
-}
-
-@media (max-width: 768px) {
-    #reports .report-cards {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    #reports .report {
-        padding: 14px;
-    }
-
-    #reports .report h2 {
-        font-size: 23px;
-        margin: 12px 0 10px;
-    }
-
-    .drop-icon {
-        width: 20px;
-        height: 20px;
-    }
-
-    #reports .report-preview {
-        margin: 8px 0 12px;
-    }
-}
-
-#reports > h1 {
-    margin-bottom: 5px;
-}
-
-#reports > h1 + p {
-    margin-top: 0;
-    margin-bottom: 22px;
-    font-size: 18px;
-}
-
-#reports .flush-guide {
-    font-family: 'Oswald', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--red);
-    letter-spacing: 0.3px;
-    margin-top: 0;
-    margin-bottom: 28px;
-}
+/* Evidence gallery scrolling */
 
 #gallery h2 {
     margin-bottom: 5px;
@@ -770,109 +403,11 @@ main a:active {
     scrollbar-color: var(--red) transparent;
 }
 
-.evidence-card {
-    flex: 0 0 290px;
-    margin: 0;
-    background-color: #F7F1E6;
-    border: 2px solid var(--black);
-    border-top: 6px solid var(--mustard);
-    box-shadow: 4px 4px 0 var(--black);
-    scroll-snap-align: start;
-}
 
-.evidence-card a {
-    display: block;
-    margin: 12px 12px 0;
-    overflow: hidden;
-}
-
-.evidence-card img {
-    display: block;
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-    filter: saturate(0.85);
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.evidence-card a:hover img {
-    transform: scale(1.05);
-    filter: saturate(1);
-}
-
-.evidence-card figcaption {
-    display: flex;
-    flex-direction: column;
-    padding: 12px 14px 16px;
-}
-
-.evidence-card figcaption span {
-    font-family: 'Oswald', sans-serif;
-    font-size: 13px;
-    color: var(--red);
-    letter-spacing: 1px;
-}
-
-.evidence-card figcaption strong {
-    font-family: 'Oswald', sans-serif;
-    font-size: 22px;
-    text-transform: uppercase;
-    line-height: 1.3;
-    margin: 5px 0;
-}
-
-.evidence-card figcaption small {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-@media (max-width: 768px) {
-    .evidence-card {
-        flex-basis: 250px;
-    }
-
-    .evidence-card img {
-        height: 170px;
-    }
-}
-
-.gallery-controls {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-bottom: 12px;
-}
-
-.gallery-controls button {
-    background-color: var(--black);
-    color: var(--cream);
-    border: 2px solid var(--black);
-    border-radius: 3px;
-    width: 44px;
-    height: 40px;
-    font-size: 22px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.gallery-controls button:hover {
-    background-color: var(--mustard);
-    color: var(--black);
-}
-
-.evidence-gallery {
-    scrollbar-width: none;
-}
-
-.evidence-gallery::-webkit-scrollbar {
-    display: none;
-}
-
-.gallery-wrapper {
-    position: relative;
-}
-
+ .evidence-card { margin: 0; }
+.evidence-gallery { scrollbar-width: none; }
+.evidence-gallery::-webkit-scrollbar { display: none; }
+.gallery-wrapper { position: relative; }
 .gallery-controls {
     position: absolute;
     top: 50%;
@@ -883,10 +418,8 @@ main a:active {
     justify-content: space-between;
     pointer-events: none;
     z-index: 2;
-    margin: 0;
     padding: 0 10px;
 }
-
 .gallery-controls button {
     pointer-events: auto;
     background-color: var(--black);
@@ -895,9 +428,11 @@ main a:active {
     border-radius: 3px;
     width: 42px;
     height: 42px;
+    font-size: 22px;
     opacity: 0.9;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
-
 .gallery-controls button:hover {
     background-color: var(--mustard);
     color: var(--black);
@@ -916,7 +451,7 @@ main a:active {
 #map iframe {
     display: block;
     width: 100%;
-    border: 2px solid var(--black) !important;
+    border: 2px solid var(--black);
     border-radius: 3px;
     box-shadow: 5px 5px 0 var(--black);
 }
@@ -1489,53 +1024,589 @@ main a:active {
     }
 }
 
-/* Home Page Scroll Indicator */
 
-.scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    margin: 24px auto 0;
-    color: var(--black);
-    font-family: "Oswald", sans-serif;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-decoration: none;
-    text-align: center;
-    transition: color 0.2s ease;
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
 }
 
-.scroll-indicator:hover,
-.scroll-indicator:focus-visible {
+
+/* =========================================
+   HOME PAGE — FINAL REVISIONS
+   ========================================= */
+
+/* Hero */
+
+#hero {
+    text-align: center;
+    padding: 30px 0 15px;
+}
+
+#hero .hero-logo {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    margin: 0 auto 20px;
+}
+
+#hero h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+/* Welcome Section */
+
+#about {
+    max-width: 780px;
+    margin: 0 auto 75px;
+    text-align: center;
+}
+
+#about h2 {
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0 auto 18px;
+}
+
+/* Rating Section */
+
+#ratings {
+    margin-bottom: 85px;
+}
+
+#ratings > p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* Featured Reports — New Layout */
+
+#featured {
+    text-align: center;
+    padding: 45px 25px 60px;
+    margin-bottom: 40px;
+    border-top: 2px solid var(--black);
+}
+
+#featured > h2 {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 0 0 14px;
     color: var(--red);
 }
 
-.scroll-arrow {
-    font-size: 30px;
-    line-height: 1;
-    animation: scroll-bounce 2s infinite;
+#featured .featured-intro {
+    max-width: 760px;
+    margin: 0 auto;
 }
 
-@keyframes scroll-bounce {
-    0%, 100% {
-        transform: translateY(0);
+#featured .featured-intro h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    color: var(--black);
+    margin: 0 0 20px;
+}
+
+#featured .featured-intro p {
+    max-width: 610px;
+    margin: 0 auto 30px;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* Report Navigation Button */
+
+#featured .restroom-sign {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    padding: 13px 24px;
+
+    background-color: var(--black);
+    color: var(--cream);
+
+    border: 3px solid var(--black);
+    border-radius: 4px;
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    box-shadow: 4px 4px 0 #9B8F7D;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#featured .restroom-sign:hover {
+    background-color: #44413D;
+    color: var(--cream);
+    transform: translateY(-3px);
+    box-shadow: 4px 7px 0 #9B8F7D;
+}
+
+#featured .restroom-sign:focus-visible {
+    outline: 3px solid var(--teal);
+    outline-offset: 5px;
+}
+
+/* Mobile Adjustments */
+
+@media (max-width: 768px) {
+
+    #hero {
+        padding: 15px 0 10px;
     }
-    50% {
-        transform: translateY(6px);
+
+    #hero h2 {
+        font-size: 18px;
+    }
+
+    #about {
+        margin-bottom: 55px;
+    }
+
+    #about p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    #ratings {
+        margin-bottom: 60px;
+    }
+
+    #featured {
+        padding: 35px 10px 45px;
+    }
+
+    #featured .featured-intro h3 {
+        font-size: 30px;
+    }
+
+    #featured .featured-intro p {
+        font-size: 16px;
+    }
+
+    #featured .restroom-sign {
+        font-size: 17px;
+        padding: 12px 16px;
+        gap: 10px;
     }
 }
 
-html {
-    scroll-behavior: smooth;
-}
+@media (max-width: 380px) {
 
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
+    #featured .featured-intro h3 {
+        font-size: 26px;
     }
 
-    .scroll-arrow {
-        animation: none;
+    #featured .restroom-sign {
+        font-size: 15px;
+    }
+}
+
+/* HOME PAGE — TYPOGRAPHY HIERARCHY */
+
+/* Hero supporting tagline */
+#hero h2 {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Featured Reports section label */
+#featured > h2 {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--red);
+    margin-bottom: 14px;
+}
+
+/* Featured Reports main headline */
+#featured .featured-intro h3 {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    #hero h2 {
+        font-size: 18px;
+    }
+
+    #featured .featured-intro h3 {
+        font-size: 30px;
+    }
+}
+
+/* =========================================
+   REPORTS PAGE — REVISED STYLING
+   ========================================= */
+
+/* Rating Legend */
+
+#reports .report-legend {
+    margin: 30px 0 35px;
+    padding: 20px;
+    background-color: #F7F1E6;
+    border: 2px solid var(--black);
+    border-radius: 3px;
+}
+
+#reports .legend-heading {
+    margin: 0 0 15px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+#reports .legend-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+#reports .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#reports .legend-item img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+/* Report Cards */
+
+#reports .report-cards {
+    align-items: start;
+    gap: 22px;
+}
+
+#reports .report {
+    background-color: #F7F1E6;
+    border: 2px solid var(--black);
+    border-top-width: 6px;
+    border-radius: 3px;
+    padding: 18px;
+    box-shadow: 4px 4px 0 var(--black);
+    min-width: 0;
+}
+
+#reports .report.safe {
+    border-top-color: var(--teal);
+}
+
+#reports .report.caution {
+    border-top-color: var(--mustard);
+}
+
+#reports .report.danger {
+    border-top-color: var(--red);
+}
+
+#reports .report-file {
+    color: var(--black);
+}
+
+#reports .report h2 {
+    font-size: 25px;
+    line-height: 1.2;
+    margin: 16px 0 14px;
+}
+
+/* New Report Rating Icons */
+
+#reports .report-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#reports .report-rating img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+#reports .report-rating span {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--black);
+}
+
+/* Report Previews and Expanded Details */
+
+#reports .report-preview {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 12px 0 18px;
+}
+
+#reports .report-details {
+    border-top: 1px solid var(--black);
+    padding-top: 12px;
+}
+
+#reports .report-details summary {
+    color: var(--black);
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+#reports .report-details summary:hover {
+    color: var(--teal);
+    text-decoration: underline;
+}
+
+#reports .report-details summary:focus-visible {
+    outline: 3px solid var(--teal);
+    outline-offset: 4px;
+}
+
+#reports .report-expanded p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 14px 0;
+}
+
+#reports .report-expanded strong {
+    color: var(--black);
+}
+
+/* More Reports Coming Soon */
+
+#reports .reports-coming-soon {
+    max-width: 650px;
+    margin: 55px auto 0;
+    text-align: center;
+}
+
+#reports .reports-coming-soon h2 {
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+#reports .reports-coming-soon p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 auto;
+}
+
+/* =========================================
+   EVIDENCE GALLERY — REVISED STYLING
+   ========================================= */
+
+/* Distinguish EXHIBITS from FILE Reports */
+
+#gallery .evidence-card {
+    flex: 0 0 290px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    scroll-snap-align: start;
+}
+
+#gallery .evidence-card a {
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    border: 3px solid var(--black);
+    border-radius: 3px;
+    background-color: var(--black);
+}
+
+#gallery .evidence-card img {
+    display: block;
+    width: 100%;
+    height: 195px;
+    object-fit: cover;
+    filter: saturate(0.85);
+    transition: transform 0.3s ease,
+                filter 0.3s ease;
+}
+
+#gallery .evidence-card a:hover img {
+    transform: scale(1.04);
+    filter: saturate(1);
+}
+
+/* Exhibit Captions */
+
+#gallery .evidence-card figcaption {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 2px 15px;
+}
+
+#gallery .evidence-card figcaption > span {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--black);
+}
+
+#gallery .evidence-card figcaption strong {
+    font-family: 'Oswald', sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.3;
+    margin: 5px 0;
+}
+
+#gallery .evidence-card figcaption small {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Exhibit Rating Icons */
+
+#gallery .evidence-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding-top: 10px;
+    width: 100%;
+    border-top: 1px solid #B6AEA0;
+    box-sizing: border-box;
+}
+
+#gallery .evidence-rating img {
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+    filter: none;
+    flex-shrink: 0;
+}
+
+#gallery .evidence-rating span {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#gallery .evidence-rating.safe-text span {
+    color: var(--teal);
+}
+
+#gallery .evidence-rating.caution-text span {
+    color: #85601F;
+}
+
+#gallery .evidence-rating.danger-text span {
+    color: var(--red);
+}
+
+/* =========================================
+   REPORTS PAGE — MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    #reports .report-legend {
+        padding: 18px 12px;
+    }
+
+    #reports .legend-items {
+        gap: 15px;
+    }
+
+    #reports .legend-item {
+        font-size: 13px;
+    }
+
+    #reports .legend-item img {
+        width: 28px;
+        height: 28px;
+    }
+
+    #reports .report-cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    #reports .report {
+        padding: 16px;
+    }
+
+    #reports .reports-coming-soon {
+        margin-top: 45px;
+    }
+
+    #gallery .evidence-card {
+        flex-basis: 250px;
+    }
+
+    #gallery .evidence-card img {
+        height: 175px;
+    }
+}
+
+/* Reports — Restroom Photographs */
+
+#reports .report-photo {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid var(--black);
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin: 0 0 18px;
+}
+
+@media (max-width: 768px) {
+    #reports .report-photo {
+        height: 220px;
     }
 }
