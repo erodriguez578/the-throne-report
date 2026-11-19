@@ -62,14 +62,20 @@ const tips = [
 ];
 
 const tipButton = document.getElementById("tip-button");
+const flushSound = new Audio("audio/toilet-flush.mp3");
+flushSound.volume = 0.4;
 const tipResult = document.getElementById("tip-result");
 
 let previousTip = -1;
 
 if (tipButton && tipResult) {
     tipButton.addEventListener("click", function() {
-        let randomIndex;
 
+        // Play the toilet flushing sound
+        flushSound.currentTime = 0;
+        flushSound.play().catch(() => {});
+
+        let randomIndex;
         do {
             randomIndex = Math.floor(Math.random() * tips.length);
         } while (randomIndex === previousTip);
@@ -98,6 +104,98 @@ if (evidenceGallery && galleryPrevious && galleryNext) {
         evidenceGallery.scrollBy({
             left: 310,
             behavior: "smooth"
+        });
+    });
+}
+
+/* Evidence Gallery Lightbox */
+
+const lightbox = document.getElementById("evidence-lightbox");
+const lightboxImage = document.getElementById("lightbox-image");
+const lightboxTitle = document.getElementById("lightbox-title");
+const lightboxDescription = document.getElementById("lightbox-description");
+const lightboxClose = document.getElementById("lightbox-close");
+
+if (lightbox) {
+    const evidenceLinks = document.querySelectorAll(".evidence-card a");
+    let previousFocus = null;
+
+    evidenceLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            const card = link.closest(".evidence-card");
+            const image = link.querySelector("img");
+
+            previousFocus = document.activeElement;
+
+            lightboxImage.src = link.href;
+            lightboxImage.alt = image.alt;
+
+            lightboxTitle.textContent =
+                card.querySelector("figcaption strong").textContent;
+
+            lightboxDescription.textContent =
+                card.querySelector("figcaption small").textContent;
+
+            lightbox.classList.add("open");
+            lightbox.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+            lightboxClose.focus();
+        });
+    });
+
+    function closeEvidenceLightbox() {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        lightboxImage.removeAttribute("src");
+
+        if (previousFocus) {
+            previousFocus.focus();
+        }
+    }
+
+    lightboxClose.addEventListener("click", closeEvidenceLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+            closeEvidenceLightbox();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && lightbox.classList.contains("open")) {
+            closeEvidenceLightbox();
+        }
+
+        if (event.key === "Tab" && lightbox.classList.contains("open")) {
+            event.preventDefault();
+            lightboxClose.focus();
+        }
+    });
+}
+
+/* Home Page Desk Bell Sound */
+
+const exploreButton = document.querySelector(".restroom-sign");
+
+if (exploreButton) {
+    const deskBell = new Audio("audio/desk-bell.mp3");
+    deskBell.volume = 0.4;
+
+    exploreButton.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        deskBell.currentTime = 0;
+
+        // Navigate after the bell finishes ringing
+        deskBell.onended = function() {
+            window.location.href = exploreButton.href;
+        };
+
+        deskBell.play().catch(function() {
+            window.location.href = exploreButton.href;
         });
     });
 }

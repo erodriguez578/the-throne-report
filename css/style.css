@@ -6,7 +6,7 @@
 :root {
     --red: #9B3D35;
     --mustard: #C39142;
-    --teal: #52766A;
+    --teal: #3E6055;
     --black: #292826;
     --cream: #E9DFCF;
 }
@@ -1237,4 +1237,305 @@ main a:active {
     line-height: 1.6;
 }
 
+/* Evidence Gallery Lightbox */
 
+.evidence-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.evidence-lightbox.open {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 18px;
+    box-sizing: border-box;
+    background-color: var(--cream);
+    border: 3px solid var(--mustard);
+    text-align: center;
+}
+
+.lightbox-content img {
+    display: block;
+    max-width: 100%;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    margin-top: 15px;
+}
+
+.lightbox-caption strong {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.lightbox-caption p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background-color: var(--red);
+    color: var(--cream);
+    border: 2px solid var(--black);
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.lightbox-close:hover {
+    background-color: var(--black);
+}
+
+.lightbox-close:focus-visible {
+    outline: 3px solid var(--mustard);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .evidence-lightbox {
+        padding: 12px;
+    }
+
+    .lightbox-content {
+        padding: 12px;
+    }
+
+    .lightbox-content img {
+        max-height: 55vh;
+    }
+}
+
+/* Survival Guide — FAQ */
+
+#faq h2 {
+    margin-bottom: 20px;
+}
+
+#faq details {
+    background-color: #F7F1E6;
+    border: 2px solid var(--black);
+    border-left: 6px solid var(--red);
+    border-radius: 3px;
+    box-shadow: 4px 4px 0 var(--black);
+    margin-bottom: 16px;
+    padding: 0 18px;
+}
+
+#faq summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#faq summary::-webkit-details-marker {
+    display: none;
+}
+
+#faq summary::after {
+    content: "+";
+    color: var(--red);
+    font-size: 28px;
+    line-height: 1;
+}
+
+#faq details[open] summary::after {
+    content: "−";
+}
+
+#faq summary:hover {
+    color: var(--red);
+}
+
+#faq summary:focus-visible {
+    outline: 3px solid var(--mustard);
+    outline-offset: 4px;
+}
+
+#faq details p {
+    border-top: 1px solid var(--black);
+    padding: 15px 0 18px;
+    margin: 0;
+    font-size: 16px;
+}
+
+@media (max-width: 600px) {
+    #faq summary {
+        font-size: 17px;
+    }
+
+    #faq details {
+        padding: 0 14px;
+    }
+}
+
+/* Emergency Exit Strategy */
+
+#resources {
+    text-align: center;
+}
+
+.roadside-sign {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 35px 25px;
+    background-color: #B3262D;
+    color: #FFFFFF;
+    border: 5px solid var(--black);
+    border-radius: 6px;
+    box-shadow: 6px 6px 0 var(--black);
+}
+
+.roadside-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+}
+
+.roadside-sign h2 {
+    margin: 12px 0;
+    color: #fffb00;
+    font-size: 45px;
+}
+
+.roadside-sign p {
+    max-width: 500px;
+    margin: 0 auto 25px;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.roadside-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.roadside-links a {
+    display: inline-block;
+    padding: 12px 22px;
+    background-color: var(--cream);
+    color: var(--black);
+    border: 2px solid var(--black);
+    border-radius: 3px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    box-shadow: 3px 3px 0 var(--black);
+    transition: transform 0.2s ease;
+}
+
+.roadside-links a:hover {
+    transform: translateY(-3px);
+    background-color: var(--mustard);
+    color: var(--black);
+    text-decoration: none;
+}
+
+.roadside-links a:focus-visible {
+    outline: 3px solid var(--mustard);
+    outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+    .roadside-sign {
+        padding: 25px 15px;
+    }
+
+    .roadside-sign h2 {
+        font-size: 28px;
+    }
+
+    .roadside-links {
+        flex-direction: column;
+    }
+}
+
+/* Home Page Scroll Indicator */
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 24px auto 0;
+    color: var(--black);
+    font-family: "Oswald", sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center;
+    transition: color 0.2s ease;
+}
+
+.scroll-indicator:hover,
+.scroll-indicator:focus-visible {
+    color: var(--red);
+}
+
+.scroll-arrow {
+    font-size: 30px;
+    line-height: 1;
+    animation: scroll-bounce 2s infinite;
+}
+
+@keyframes scroll-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .scroll-arrow {
+        animation: none;
+    }
+}
